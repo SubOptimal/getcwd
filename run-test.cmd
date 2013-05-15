@@ -43,9 +43,3 @@ pushd "%ProgramFiles%"
 %JAVA_HOME%\bin\java -cp %CLASS_PATH% -Djava.library.path=%LIBRARY_PATH% -Duser.dir=C:\CAFEBABE GetCwd
 popd
 
-goto :EOF
-
-REM 
-:ERROR
-echo %*
-exit 1

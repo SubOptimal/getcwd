@@ -36,7 +36,11 @@ class GetCwd {
 
 		// now switch to another logical current directory
 		// as we don't want to do some IO there it must not exist
-		System.setProperty("user.dir", "C:/I/like/this/CAFEBABE");
+		if ("Windows".equalsIgnoreCase(System.getProperty("os.name"))) {
+			System.setProperty("user.dir", "C:/I/like/this/CAFEBABE");
+		} else {
+			System.setProperty("user.dir", "/I/like/this/CAFEBABE");
+		}
 		System.out.println("   programatic change of 'user.dir' ...");
 		System.out.println("   current directory   : " + file.getAbsolutePath());
 	}
