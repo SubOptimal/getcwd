@@ -40,6 +40,6 @@ All rely on the system property "user.dir". And they are all right, as long this
 But this property might has been defined also:
 
 * as `-Duser.dir=...` when the JVM is invked
-* using `System.setProperty("user.dr", "...")`
+* using `System.setProperty("user.dir", "...")`
 
 In such case the suggestions fail. This project show those cases and the tiny library gives you a solution how to get the current working directory from which the JVM was invoked.
