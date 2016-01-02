@@ -33,13 +33,17 @@ short scratch how it comes to this behaviour
 
 AFAIK there is no reliable way with plain Java to get the information in which current working directory the JVM was invoked.
 
-There are some suggestions in the internet how to find out the current working directory from Java. The most common are `new File(".").getAbsolutePath()` and `System.getProperty("user.dir")`.
+There are some suggestions in the internet how to find out the current working directory from Java. The most common are 
 
-All rely on the system property "user.dir". And they are all right, as long this property was set by the JVM only.
+- `new File(".").getAbsolutePath()`
+- `System.getProperty("user.dir")`
+- `Paths.get(".").toAbsolutePath()`
+
+All rely on the system property "user.dir". They are all right, as long this property was set by the JVM only.
 
 But this property might has been defined also:
 
-* as `-Duser.dir=...` when the JVM is invked
-* using `System.setProperty("user.dir", "...")`
+* as `-Duser.dir=...` when the JVM is invoked
+* using `System.setProperty("user.dir", "...")` (will affect only `File` not `Path`)
 
-In such case the suggestions fail. This project show those cases and the tiny library gives you a solution how to get the current working directory from which the JVM was invoked.
+In such case the above suggestions fail. This project show those cases and the tiny library gives you a solution how to get the current working directory from which the JVM was invoked.
