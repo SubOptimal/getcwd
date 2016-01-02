@@ -47,3 +47,7 @@ But this property might has been defined also:
 * using `System.setProperty("user.dir", "...")` (will affect only `File` not `Path`)
 
 In such case the above suggestions fail. This project show those cases and the tiny library gives you a solution how to get the current working directory from which the JVM was invoked.
+
+# additional #
+
+General information about the "current directory" from operating systems point of view. http://www.devx.com/tips/Tip/13804
