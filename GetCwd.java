@@ -1,4 +1,6 @@
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import java.lang.management.ManagementFactory;
@@ -31,10 +33,13 @@ class GetCwd {
 		System.out.println("   property 'user.dir' : " + System.getProperty("user.dir"));
 
 		// get logical current directory depends on the setting of property "user.dir"
-		File file = new File(".");
-		System.out.println("   current directory   : " + file.getAbsolutePath());
+		File file = new File("");
+		System.out.println("   CWD using File      : " + file.getAbsolutePath());
+		Path path = Paths.get("");
+		System.out.println("   CWD using Path      : " + path.toAbsolutePath());
 
 		// now switch to another logical current directory
+		// have an effect only for `File` not for `Path`
 		// as we don't want to do some IO there it must not exist
 		if ("Windows".equalsIgnoreCase(System.getProperty("os.name"))) {
 			System.setProperty("user.dir", "C:/I/like/this/CAFEBABE");
@@ -42,6 +47,7 @@ class GetCwd {
 			System.setProperty("user.dir", "/I/like/this/CAFEBABE");
 		}
 		System.out.println("   programatic change of 'user.dir' ...");
-		System.out.println("   current directory   : " + file.getAbsolutePath());
+		System.out.println("   CWD using File      : " + file.getAbsolutePath());
+		System.out.println("   CWD using Path      : " + path.toAbsolutePath());
 	}
 }
