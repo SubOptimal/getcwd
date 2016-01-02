@@ -42,5 +42,5 @@ ${JDK_HOME}/bin/javah -jni GetCwd
 [ $? -ne 0 ] && print_error "ERROR generation of JNI header file failed"
 
 echo "compile the library ..."
-${GPP_BIN} -Wall -O0 -o libGetCwd.so -shared -I. -I${JDK_HOME}/include -I${JDK_HOME}/include/linux GetCwd.cpp
+${GPP_BIN} -Wall -O0 -o libGetCwd.so -shared -fPIC -I. -I${JDK_HOME}/include -I${JDK_HOME}/include/linux GetCwd.cpp
 [ $? -ne 0 ] && print_error "ERROR library compilation failed"
