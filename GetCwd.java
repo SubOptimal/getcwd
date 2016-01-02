@@ -39,7 +39,7 @@ class GetCwd {
 		System.out.println("   CWD using Path      : " + path.toAbsolutePath());
 
 		// now switch to another logical current directory
-		// have an effect only for `File` not for `Path`
+		// has an effect only for `File` not for `Path`
 		// as we don't want to do some IO there it must not exist
 		if ("Windows".equalsIgnoreCase(System.getProperty("os.name"))) {
 			System.setProperty("user.dir", "C:/I/like/this/CAFEBABE");
